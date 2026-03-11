@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: market-api
+
+  datasource:
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/marketstream}
+    username: ${POSTGRES_USER:marketstream}
+    password: ${POSTGRES_PASSWORD:marketstream}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 30000
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      timeout: 1000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 4
+
+server:
+  port: ${SERVER_PORT:8080}
+  compression:
+    enabled: true
+    mime-types: application/json
+    min-response-size: 1024
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    root: INFO
+    com.marketstream: DEBUG
