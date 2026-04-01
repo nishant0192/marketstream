@@ -2,7 +2,11 @@
 
 Real-time financial market data pipeline — Kafka → ETL → PostgreSQL + Redis, with a Spring Boot REST API and live monitoring dashboard.
 
-[![CI](https://github.com/your-org/marketstream/actions/workflows/ci.yml/badge.svg)](https://github.com/your-org/marketstream/actions)
+![Java](https://img.shields.io/badge/Java-17-blue)
+![Spring Boot](https://img.shields.io/badge/SpringBoot-3.2-green)
+![Kafka](https://img.shields.io/badge/Kafka-Streaming-black)
+![Redis](https://img.shields.io/badge/Redis-Cache-red)
+![Docker](https://img.shields.io/badge/Docker-Containerized-blue)
 
 ---
 
